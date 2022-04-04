@@ -50,6 +50,7 @@ def choose_file(file):
     cv2.imwrite(f"results/{f_name}/hpfBox.jpg", highpass_image_box)
 
     bandreject_image = lowpass_image_gaussian + highpass_image_box
+    cv2.imwrite(f"results/{f_name}/brf.jpg", bandreject_image)
 
     bandpass_image = image_src - bandreject_image
     bandpass_image = np.absolute(bandpass_image)
